@@ -1,0 +1,82 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", "Microsoft JhengHei", sans-serif;
+  background: #f4f4f5;
+  color: #1f2937;
+}
+
+.app {
+  max-width: 32rem;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: #ffffff;
+  border-radius: 8px;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 1.5rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.form-row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+#todo-input {
+  flex: 1;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+}
+
+#add-button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+#add-button:disabled {
+  cursor: not-allowed;
+}
+
+#todo-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 0;
+  border-top: 1px solid #e5e7eb;
+}
+
+.todo-item label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1;
+  margin: 0;
+  cursor: pointer;
+}
+
+.todo-item.done .todo-text {
+  text-decoration: line-through;
+  color: #6b7280;
+}
+
+.delete-button {
+  padding: 0.35rem 0.75rem;
+  cursor: pointer;
+}

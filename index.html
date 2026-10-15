@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>待辦事項</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <h1>待辦事項</h1>
+      <form id="todo-form">
+        <label for="todo-input">新增任務</label>
+        <div class="form-row">
+          <input
+            id="todo-input"
+            type="text"
+            name="todo"
+            placeholder="輸入任務內容"
+            autocomplete="off"
+          />
+          <button id="add-button" type="submit" disabled>新增</button>
+        </div>
+      </form>
+      <ul id="todo-list"></ul>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
