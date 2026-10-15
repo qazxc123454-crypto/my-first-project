@@ -4,7 +4,7 @@ const form = document.getElementById("todo-form");
 const input = document.getElementById("todo-input");
 const addButton = document.getElementById("add-button");
 const list = document.getElementById("todo-list");
-
+const remainingCount = document.getElementById("remaining-count");
 let todos = loadTodos();
 
 function createId() {
@@ -34,6 +34,14 @@ function loadTodos() {
 
 function saveTodos() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(todos));
+}
+
+function updateRemainingCount() {
+  const unfinished = todos.filter(function (todo) {
+    return todo.done === false;
+  });
+
+  remainingCount.textContent = "剩餘 " + unfinished.length + " 項未完成任務";
 }
 
 function updateAddButton() {
@@ -77,6 +85,8 @@ function renderTodos() {
     item.appendChild(deleteButton);
     list.appendChild(item);
   });
+
+  updateRemainingCount();
 }
 
 function addTodo(text) {
