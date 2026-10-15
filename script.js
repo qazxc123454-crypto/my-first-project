@@ -5,6 +5,8 @@ const input = document.getElementById("todo-input");
 const addButton = document.getElementById("add-button");
 const list = document.getElementById("todo-list");
 const remainingCount = document.getElementById("remaining-count");
+const clearCompletedButton =
+  document.getElementById("clear-completed-button");
 let todos = loadTodos();
 
 function createId() {
@@ -114,6 +116,15 @@ function toggleTodo(id) {
   renderTodos();
 }
 
+function clearCompletedTodos() {
+  todos = todos.filter(function (todo) {
+    return todo.done === false;
+  });
+
+  saveTodos();
+  renderTodos();
+}
+
 function deleteTodo(id) {
   todos = todos.filter(function (todo) {
     return todo.id !== id;
@@ -134,6 +145,8 @@ form.addEventListener("submit", function (event) {
   input.value = "";
   updateAddButton();
 });
+
+clearCompletedButton.addEventListener("click", clearCompletedTodos);
 
 updateAddButton();
 renderTodos();
