@@ -5,12 +5,14 @@ const input = document.getElementById("todo-input");
 const addButton = document.getElementById("add-button");
 const list = document.getElementById("todo-list");
 const remainingCount = document.getElementById("remaining-count");
-const clearCompletedButton =
-  document.getElementById("clear-completed-button");
+const clearCompletedButton = document.getElementById("clear-completed-button");
 let todos = loadTodos();
 
 function createId() {
-  if (typeof crypto !== "undefined" && typeof crypto.randomUUID === "function") {
+  if (
+    typeof crypto !== "undefined" &&
+    typeof crypto.randomUUID === "function"
+  ) {
     return crypto.randomUUID();
   }
   return `${Date.now()}-${Math.random().toString(16).slice(2)}`;
@@ -27,9 +29,14 @@ function loadTodos() {
       return [];
     }
     return parsed.filter(function (item) {
-      return item && typeof item.id === "string" && typeof item.text === "string" && typeof item.done === "boolean";
+      return (
+        item &&
+        typeof item.id === "string" &&
+        typeof item.text === "string" &&
+        typeof item.done === "boolean"
+      );
     });
-  } catch (error) {
+  } catch {
     return [];
   }
 }
