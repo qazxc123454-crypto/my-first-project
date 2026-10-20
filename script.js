@@ -46,11 +46,9 @@ function saveTodos() {
 }
 
 function updateRemainingCount() {
-  const unfinished = todos.filter(function (todo) {
-    return todo.done === false;
-  });
+  const unfinishedCount = countUnfinishedTodos(todos);
 
-  remainingCount.textContent = "剩餘 " + unfinished.length + " 項未完成任務";
+  remainingCount.textContent = "剩餘 " + unfinishedCount + " 項未完成任務";
 }
 
 function updateAddButton() {
