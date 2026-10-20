@@ -6,6 +6,7 @@ module.exports = [
         document: "readonly",
         localStorage: "readonly",
         crypto: "readonly",
+        countUnfinishedTodos: "readonly",
       },
     },
     rules: {
@@ -14,8 +15,14 @@ module.exports = [
     },
   },
   {
-    files: ["hello-node.js", "eslint.config.js"],
+    files: [
+      "hello-node.js",
+      "eslint.config.js",
+      "todo-utils.js",
+      "tests/todo-utils.test.js",
+    ],
     languageOptions: {
+      sourceType: "commonjs",
       globals: {
         console: "readonly",
         module: "readonly",

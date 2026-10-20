@@ -4,6 +4,7 @@
   "description": "",
   "main": "hello-node.js",
   "scripts": {
+    "test": "node --test",
     "start": "node hello-node.js",
     "format": "prettier --write .",
     "check-format": "prettier --check .",
