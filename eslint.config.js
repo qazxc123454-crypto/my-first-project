@@ -1,5 +1,8 @@
 module.exports = [
   {
+    ignores: ["playwright-report/**", "test-results/**"],
+  },
+  {
     files: ["script.js"],
     languageOptions: {
       globals: {
@@ -20,6 +23,8 @@ module.exports = [
       "eslint.config.js",
       "todo-utils.js",
       "tests/todo-utils.test.js",
+      "playwright.config.js",
+      "e2e/**/*.js",
     ],
     languageOptions: {
       sourceType: "commonjs",
