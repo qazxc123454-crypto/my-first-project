@@ -1,3 +1,3 @@
 # Lesson 24 required CI check practice
 
--    This intentionally misformatted list verifies the required formatting check.
+- This intentionally misformatted list verifies the required formatting check.
