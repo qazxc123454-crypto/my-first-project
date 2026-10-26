@@ -22,4 +22,9 @@ test("新增任務後重新整理，任務仍保留且不重複", async function
   await expect(items).toHaveCount(1);
   await expect(taskText).toHaveText(["E2E 測試任務"]);
   await expect(remainingCount).toHaveText("剩餘 1 項未完成任務");
+
+  // Lesson 25: intentionally fail after the original user flow succeeds.
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText(
+    "Lesson 25 刻意失敗：此標題不應存在",
+  );
 });
