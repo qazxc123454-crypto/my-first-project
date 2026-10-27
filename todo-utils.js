@@ -4,6 +4,14 @@ function countUnfinishedTodos(todos) {
   }).length;
 }
 
+function filterTodos(todos, keyword) {
+  const normalizedKeyword = keyword.trim().toLowerCase();
+
+  return todos.filter(function (todo) {
+    return todo.text.toLowerCase().includes(normalizedKeyword);
+  });
+}
+
 if (typeof module !== "undefined" && module.exports) {
-  module.exports = { countUnfinishedTodos };
+  module.exports = { countUnfinishedTodos, filterTodos };
 }

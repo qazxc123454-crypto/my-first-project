@@ -6,6 +6,8 @@ const addButton = document.getElementById("add-button");
 const list = document.getElementById("todo-list");
 const remainingCount = document.getElementById("remaining-count");
 const clearCompletedButton = document.getElementById("clear-completed-button");
+const searchInput = document.getElementById("search-input");
+const noResults = document.getElementById("no-results");
 let todos = loadTodos();
 
 function createId() {
@@ -56,9 +58,10 @@ function updateAddButton() {
 }
 
 function renderTodos() {
+  const visibleTodos = filterTodos(todos, searchInput.value);
   list.innerHTML = "";
 
-  todos.forEach(function (todo) {
+  visibleTodos.forEach(function (todo) {
     const item = document.createElement("li");
     item.className = "todo-item";
     if (todo.done) {
@@ -93,6 +96,7 @@ function renderTodos() {
     list.appendChild(item);
   });
 
+  noResults.hidden = searchInput.value.trim() === "" || visibleTodos.length > 0;
   updateRemainingCount();
 }
 
@@ -139,6 +143,7 @@ function deleteTodo(id) {
 }
 
 input.addEventListener("input", updateAddButton);
+searchInput.addEventListener("input", renderTodos);
 
 form.addEventListener("submit", function (event) {
   event.preventDefault();
@@ -153,5 +158,6 @@ form.addEventListener("submit", function (event) {
 
 clearCompletedButton.addEventListener("click", clearCompletedTodos);
 
+searchInput.value = "";
 updateAddButton();
 renderTodos();
