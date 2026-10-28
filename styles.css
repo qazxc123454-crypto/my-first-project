@@ -44,6 +44,16 @@ label {
   cursor: pointer;
 }
 
+.search-field {
+  margin-top: 1rem;
+}
+
+#search-input {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+}
+
 #add-button:disabled {
   cursor: not-allowed;
 }

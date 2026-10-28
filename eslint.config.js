@@ -10,6 +10,7 @@ module.exports = [
         localStorage: "readonly",
         crypto: "readonly",
         countUnfinishedTodos: "readonly",
+        filterTodos: "readonly",
       },
     },
     rules: {
