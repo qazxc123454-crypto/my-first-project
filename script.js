@@ -57,43 +57,47 @@ function updateAddButton() {
   addButton.disabled = input.value.trim() === "";
 }
 
+function createTodoElement(todo) {
+  const item = document.createElement("li");
+  item.className = "todo-item";
+  if (todo.done) {
+    item.classList.add("done");
+  }
+
+  const label = document.createElement("label");
+
+  const checkbox = document.createElement("input");
+  checkbox.type = "checkbox";
+  checkbox.checked = todo.done;
+  checkbox.addEventListener("change", function () {
+    toggleTodo(todo.id);
+  });
+
+  const text = document.createElement("span");
+  text.className = "todo-text";
+  text.textContent = todo.text;
+
+  const deleteButton = document.createElement("button");
+  deleteButton.type = "button";
+  deleteButton.className = "delete-button";
+  deleteButton.textContent = "刪除";
+  deleteButton.addEventListener("click", function () {
+    deleteTodo(todo.id);
+  });
+
+  label.appendChild(checkbox);
+  label.appendChild(text);
+  item.appendChild(label);
+  item.appendChild(deleteButton);
+  return item;
+}
+
 function renderTodos() {
   const visibleTodos = filterTodos(todos, searchInput.value);
   list.innerHTML = "";
 
   visibleTodos.forEach(function (todo) {
-    const item = document.createElement("li");
-    item.className = "todo-item";
-    if (todo.done) {
-      item.classList.add("done");
-    }
-
-    const label = document.createElement("label");
-
-    const checkbox = document.createElement("input");
-    checkbox.type = "checkbox";
-    checkbox.checked = todo.done;
-    checkbox.addEventListener("change", function () {
-      toggleTodo(todo.id);
-    });
-
-    const text = document.createElement("span");
-    text.className = "todo-text";
-    text.textContent = todo.text;
-
-    const deleteButton = document.createElement("button");
-    deleteButton.type = "button";
-    deleteButton.className = "delete-button";
-    deleteButton.textContent = "刪除";
-    deleteButton.addEventListener("click", function () {
-      deleteTodo(todo.id);
-    });
-
-    label.appendChild(checkbox);
-    label.appendChild(text);
-    item.appendChild(label);
-    item.appendChild(deleteButton);
-    list.appendChild(item);
+    list.appendChild(createTodoElement(todo));
   });
 
   noResults.hidden = searchInput.value.trim() === "" || visibleTodos.length > 0;
