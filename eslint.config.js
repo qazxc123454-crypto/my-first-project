@@ -24,6 +24,8 @@ module.exports = [
       "eslint.config.js",
       "todo-utils.js",
       "tests/todo-utils.test.js",
+      "tests/asset-versions.test.js",
+      "scripts/sync-asset-versions.js",
       "playwright.config.js",
       "e2e/**/*.js",
     ],
@@ -32,6 +34,9 @@ module.exports = [
       globals: {
         console: "readonly",
         module: "readonly",
+        process: "readonly",
+        __dirname: "readonly",
+        URLSearchParams: "readonly",
       },
     },
     rules: {

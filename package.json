@@ -4,7 +4,9 @@
   "description": "",
   "main": "hello-node.js",
   "scripts": {
-    "test": "node --test tests/todo-utils.test.js",
+    "test": "node --test tests/todo-utils.test.js tests/asset-versions.test.js",
+    "sync": "node scripts/sync-asset-versions.js",
+    "check": "node scripts/sync-asset-versions.js --check",
     "test:e2e": "playwright test",
     "start": "node hello-node.js",
     "format": "prettier --write .",
