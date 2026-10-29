@@ -24,6 +24,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Check static asset versions
+        run: npm run check
+
       - name: Run ESLint
         run: npm run lint
 
